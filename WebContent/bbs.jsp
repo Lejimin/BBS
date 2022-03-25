@@ -21,13 +21,22 @@
 <body>
 	<%
 		String userID = null;
-	if(session.getAttribute("userID") != null){
-		userID = (String) session.getAttribute("userID");
-	}
-	int pageNumber = 1;
-	if(request.getParameter("pageNumber")!=null){
-		pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-	}
+		if(session.getAttribute("userID") != null){
+			userID = (String) session.getAttribute("userID");
+		}
+		int pageNumber = 1;
+		if(request.getParameter("pageNumber")!=null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}
+		
+/* 		BbsDAO bbsDAO = new BbsDAO();
+		
+		int totalPage=0;
+		int totalRecode=0;
+		int numPerPage=10; 
+
+		totalRecode = (int)bbsDAO.getTotalCount();
+		totalPage = (int)Math.ceil((double)totalRecode / numPerPage); */
 	%>
 	<nav class="navbar navbar-default">
 		<div class="navbar-header">
@@ -73,6 +82,13 @@
 	</nav>
 	
 	<div class="container">
+		<table class="w-75">
+<%-- 		<tr>
+			<td>
+				Page : <%=totalPage %> Page
+			</td>
+		</tr> --%>
+		</table>
 		<div class="row">
 			<table class="table table-striped" style="text-align: center; border: 1px solid #dddddd">
 				<thead>

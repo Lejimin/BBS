@@ -173,7 +173,22 @@ public class BbsDAO {
 	}
 	
 	
-	
+	public int getTotalCount() {
+		int cnt=0;
+		String sql = "select count(*) from bbs";
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs!=null) {
+				while(rs.next()) {
+					cnt=rs.getInt(1);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cnt;
+	}
 	
 	
 	
