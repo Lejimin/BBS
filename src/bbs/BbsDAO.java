@@ -49,7 +49,7 @@ public class BbsDAO {
 			if(rs.next()) {
 				return rs.getInt(1)+1;
 			}
-			return 1; //첫 번째 게이물인 경우
+			return 1; //첫 번째 게시물인 경우
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
